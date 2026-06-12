@@ -13,7 +13,7 @@ public abstract class Game {
 
     public Game(String gameID, String gameTitle, int gameYear, double gamePrice) {
         if (gamePrice < 0) {
-            throw new IllegalArgumentException("Game price cannot be negative");
+            throw new IllegalArgumentException("Il prezzo del gioco non può essere negativo");
         }
         this.gameID = gameID;
         this.gameTitle = gameTitle;
@@ -26,12 +26,15 @@ public abstract class Game {
     public String getGameID() {
         return gameID;
     }
+
     public String getGameTitle() {
         return gameTitle;
     }
+
     public int getGameYear() {
         return gameYear;
     }
+
     public double getGamePrice() {
         return gamePrice;
     }
@@ -39,11 +42,10 @@ public abstract class Game {
     @Override
     public String toString() {
         return "Game{" +
-                "gameID='" + gameID + '\'' +
-                ", gameTitle='" + gameTitle + '\'' +
-                ", gameYear=" + gameYear +
-                ", gamePrice=" + gamePrice +
-                '}';
+                "ID= " + gameID +
+                ", Title= " + gameTitle +
+                ", Year= " + gameYear +
+                ", Price= " + gamePrice;
     }
 
     @Override

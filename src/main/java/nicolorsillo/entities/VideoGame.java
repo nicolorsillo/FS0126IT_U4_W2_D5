@@ -2,20 +2,12 @@ package nicolorsillo.entities;
 
 import java.util.Objects;
 
-public class VideoGame extends Game{
+public class VideoGame extends Game {
     private String platform;
     private int hoursOfPlay;
-    private enum Genre {
-        ACTION,
-        SHOOTER,
-        SPORT,
-        RACING,
-        HORROR,
-        PUZZLE
-    }
     private Genre genre;
 
-    public VideoGame (String gameID, String gameTitle, int gameYear, double gamePrice, String platform, int hoursOfPlay, Genre genre) {
+    public VideoGame(String gameID, String gameTitle, int gameYear, double gamePrice, String platform, int hoursOfPlay, Genre genre) {
         super(gameID, gameTitle, gameYear, gamePrice);
         this.platform = platform;
         this.hoursOfPlay = hoursOfPlay;
@@ -36,10 +28,11 @@ public class VideoGame extends Game{
 
     @Override
     public String toString() {
-        return "VideoGame{" +
-                "platform='" + platform + '\'' +
-                ", hoursOfPlay=" + hoursOfPlay +
-                ", genre=" + genre +
+        return super.toString() +
+                ", Type= VideoGame" +
+                ", platform= " + platform +
+                ", hoursOfPlay= " + hoursOfPlay +
+                ", genre= " + genre +
                 '}';
     }
 
@@ -54,5 +47,14 @@ public class VideoGame extends Game{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), platform, hoursOfPlay, genre);
+    }
+
+    public enum Genre {
+        ACTION,
+        SHOOTER,
+        SPORT,
+        RACING,
+        HORROR,
+        PUZZLE
     }
 }

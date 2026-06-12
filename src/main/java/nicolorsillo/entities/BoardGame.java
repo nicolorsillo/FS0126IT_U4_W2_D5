@@ -2,30 +2,38 @@ package nicolorsillo.entities;
 
 import java.util.Objects;
 
-public class BoardGame extends Game{
+public class BoardGame extends Game {
 
-    private int numOfPlayers;
+    private int minNumOfPlayers;
+    private int maxNumOfPlayers;
     private int averagePlayingTime;
 
-    public BoardGame (String gameID, String gameTitle, int gameYear, double gamePrice, int numOfPlayers, int averagePlayingTime){
+    public BoardGame(String gameID, String gameTitle, int gameYear, double gamePrice, int minNumOfPlayers, int maxNumOfPlayers, int averagePlayingTime) {
         super(gameID, gameTitle, gameYear, gamePrice);
-        this.numOfPlayers = numOfPlayers;
+        this.minNumOfPlayers = minNumOfPlayers;
+        this.maxNumOfPlayers = maxNumOfPlayers;
         this.averagePlayingTime = averagePlayingTime;
     }
 
-    public int getNumOfPlayers() {
-        return numOfPlayers;
+    public int getMinNumOfPlayers() {
+        return minNumOfPlayers;
     }
 
-    public  int getAveragePlayingTime() {
+    public int getMaxNumOfPlayers() {
+        return maxNumOfPlayers;
+    }
+
+    public int getAveragePlayingTime() {
         return averagePlayingTime;
     }
 
     @Override
     public String toString() {
-        return "BoardGame{" +
-                "numOfPlayers=" + numOfPlayers +
-                ", averagePlayingTime=" + averagePlayingTime +
+        return super.toString() +
+                ", Type= BoardGame" +
+                ", NumOfPlayers= " + minNumOfPlayers +
+                "-" + maxNumOfPlayers +
+                ", AveragePlayingTime= " + averagePlayingTime +
                 '}';
     }
 
@@ -34,11 +42,11 @@ public class BoardGame extends Game{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         BoardGame boardGame = (BoardGame) o;
-        return numOfPlayers == boardGame.numOfPlayers && averagePlayingTime == boardGame.averagePlayingTime;
+        return maxNumOfPlayers == boardGame.maxNumOfPlayers && minNumOfPlayers == boardGame.minNumOfPlayers && averagePlayingTime == boardGame.averagePlayingTime;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), numOfPlayers, averagePlayingTime);
+        return Objects.hash(super.hashCode(), maxNumOfPlayers, minNumOfPlayers, averagePlayingTime);
     }
 }
