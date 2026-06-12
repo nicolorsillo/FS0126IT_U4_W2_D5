@@ -7,12 +7,16 @@ public class VideoGame extends Game {
     private int hoursOfPlay;
     private Genre genre;
 
+    //Constructor
+
     public VideoGame(String gameID, String gameTitle, int gameYear, double gamePrice, String platform, int hoursOfPlay, Genre genre) {
         super(gameID, gameTitle, gameYear, gamePrice);
         this.platform = platform;
         this.hoursOfPlay = hoursOfPlay;
         this.genre = genre;
     }
+
+    //Getter
 
     public String getPlatform() {
         return platform;

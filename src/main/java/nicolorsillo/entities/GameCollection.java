@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class GameCollection {
     private List<Game> gamesList = new ArrayList<>();
+
+    //Aggiungi gioco
 
     public void addGame(Game game) throws IdAlreadyExistException {
         if (gamesList.stream().anyMatch(g -> g.getGameID().equals(game.getGameID()))) {
@@ -25,9 +26,13 @@ public class GameCollection {
         return gamesList;
     }
 
+    //Ricerca tramite ID
+
     public Optional<Game> searchByID(String gameID) {
         return gamesList.stream().filter(g -> g.getGameID().equals(gameID)).findFirst();
     }
+
+    //Ricerca tramite Prezzo
 
     public List<Game> searchByMaxPrice(double maxPrice) {
         if (maxPrice < 0) {
@@ -35,6 +40,8 @@ public class GameCollection {
         }
         return gamesList.stream().filter(g -> g.getGamePrice() <= maxPrice).toList();
     }
+
+    //Ricerca tramite numero di Giocatori
 
     public List<Game> searchByNumOfPlayers(int numOfPlayers) {
         if (numOfPlayers < 1) {
@@ -45,6 +52,8 @@ public class GameCollection {
                         getMaxNumOfPlayers() >= numOfPlayers && ((BoardGame) bg).getMinNumOfPlayers() <= numOfPlayers).collect(Collectors.toList());
     }
 
+    //Rimuovi tramite ID
+
     public void removeByID(String gameID) throws GameNotFoundException {
         if (gamesList.stream().anyMatch(game -> game.getGameID().equals(gameID))) {
             gamesList.removeIf(game -> game.getGameID().equals(gameID));
@@ -53,6 +62,8 @@ public class GameCollection {
         }
     }
 
+    //Aggiorna Gioco
+
     public void updateGame(String gameID, Game updatedGame) throws GameNotFoundException {
         if (gamesList.stream().noneMatch(game -> game.getGameID().equals(gameID))) {
             throw new GameNotFoundException("Non esiste nessun gioco con l'ID " + gameID);
@@ -60,6 +71,8 @@ public class GameCollection {
             gamesList.set(gamesList.indexOf(gamesList.stream().filter(g -> g.getGameID().equals(gameID)).findFirst().get()), updatedGame);
         }
     }
+
+    //Salva Statistiche
 
     public List<Game> searchByPrice(double price) {
         if (price < 0) {

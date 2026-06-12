@@ -19,6 +19,7 @@ public class Application {
         GameCollection collection = new GameCollection();
         boolean running = true;
 
+        //Aggiungo elementi alla collection
 
         collection.addGame(new VideoGame("VG3000001", "Fifa", 2016, 49.99, "PC", 6, SPORT));
         collection.addGame(new VideoGame("VG2000001", "GTA", 2013, 74.99, "PS", 7, SHOOTER));
@@ -29,30 +30,11 @@ public class Application {
         collection.addGame(new BoardGame("BG0000002", "Carcassone", 2000, 29.99, 2, 5, 40));
         collection.addGame(new BoardGame("BG0000003", "Hitster", 2022, 19.99, 1, 12, 30));
 
-
-        /*System.out.println(collection.searchByID("VG3000001"));
-        System.out.println(collection.searchByID("BG0000001"));
-        System.out.println(collection.searchByID("BG0000eeeee"));
-
-        System.out.println(collection.searchByMaxPrice(0));
-
-        System.out.println(collection.searchByNumOfPlayers(1));
-
-        collection.removeByID("BG0000003");
-
-        collection.getGamesList().forEach(System.out::println);
-
-        collection.addGame(new BoardGame("BG0000003", "Hitster", 2022, 19.99, 1, 12, 30));
-
-        collection.getGamesList().forEach(System.out::println);
-
-        collection.updateGame("BG0000003", new BoardGame("BG0000004", "Hitster", 2022, 19.99, 1, 12, 30));
-
-        collection.getGamesList().forEach(System.out::println);
-
-        collection.printStats();*/
+        //Inizia applicazione
 
         System.out.println("\n-------Game Shop------\n");
+
+        //Parte menu principale
 
 
         while (running) {
@@ -162,6 +144,8 @@ public class Application {
         scanner.close();
     }
 
+    //Interfaccia per inserire un nuovo gioco
+
     private static void addGame(GameCollection collection, Scanner scanner) {
         try {
             System.out.println("\n--- AGGIUNGI NUOVO GIOCO ---");
@@ -257,6 +241,8 @@ public class Application {
             System.out.println("Errore: " + e.getMessage());
         }
     }
+
+    //Interfaccia per aggiornare un gioco
 
     private static void updateGame(GameCollection collection, Scanner scanner) {
         System.out.println("\n--- AGGIORNA GIOCO ESISTENTE ---");

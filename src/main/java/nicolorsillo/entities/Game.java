@@ -1,6 +1,5 @@
 package nicolorsillo.entities;
 
-import java.util.Date;
 import java.util.Objects;
 
 public abstract class Game {

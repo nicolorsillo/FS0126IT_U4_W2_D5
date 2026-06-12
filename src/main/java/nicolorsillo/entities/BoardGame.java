@@ -8,12 +8,16 @@ public class BoardGame extends Game {
     private int maxNumOfPlayers;
     private int averagePlayingTime;
 
+    //Constructor
+
     public BoardGame(String gameID, String gameTitle, int gameYear, double gamePrice, int minNumOfPlayers, int maxNumOfPlayers, int averagePlayingTime) {
         super(gameID, gameTitle, gameYear, gamePrice);
         this.minNumOfPlayers = minNumOfPlayers;
         this.maxNumOfPlayers = maxNumOfPlayers;
         this.averagePlayingTime = averagePlayingTime;
     }
+
+    //Getter
 
     public int getMinNumOfPlayers() {
         return minNumOfPlayers;
